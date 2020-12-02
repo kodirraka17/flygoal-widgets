@@ -7,7 +7,7 @@ Requires PHP: 5.3 and 7x
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Free Soccer plugin for wordpress site. Get Soccer standing, schedule and result from 5 top league. Data is suppl by flygoal. 
+Free Soccer plugin for wordpress site. Get Soccer standing, schedule and result from 5 top league. Data is supply by flygoal. 
 
 == Description ==
 This Plugin included sidebar widget and shortcode for your content post. its have 3 feature : standing, last result/previous round and next round / next match schedule. You can put this on sidebar widget or using shortcode. Data is Powered and Designed special for flygoal.com wordpress plugin and pull in from our site corporate.flygoal.com
