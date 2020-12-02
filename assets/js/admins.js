@@ -1,12 +1,8 @@
-
 jQuery(document).ready(function($) {
-
   let upcoming_fixture_widget = {};
 
   // Find Teams w/ AJAX
-
   upcoming_fixture_widget.loadTeams = function(element){
-
     let parent = $(element).parents(".fg_form_wrapper");
     let league_id = element.value;
     let edit = $(parent).find("[data-uid=fg_next_fixture_club]");
@@ -21,7 +17,6 @@ jQuery(document).ready(function($) {
   }
 
   // Listeners
-
   $(document).on('change','[data-uid=fg_next_fixture_league]', function(e){
     upcoming_fixture_widget.loadTeams(this);
     let outer = $(this).parents(".fg_form_wrapper");
@@ -43,5 +38,4 @@ jQuery(document).ready(function($) {
     let selected_league = $('option:selected',this).text();
     $(league_name).val(selected_league);
   });
-
 }); // doc ready

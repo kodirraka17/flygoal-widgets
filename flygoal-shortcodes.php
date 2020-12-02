@@ -200,9 +200,9 @@
 	    	$id = 122116;
 	    }
 
-	    $some_variable = new flygoal_Standings();
-		$res = $some_variable->standing_html($id);
-	    return $res;
+	    $varStandings = new flygoal_Standings();
+		$resStandings = $varStandings->standing_html($id);
+	    return $resStandings;
 	}
 	add_shortcode('standings', 'fgspstandingsLeague');
 
@@ -225,10 +225,10 @@
 	    	$id = 122116;
 	    }
 
-	    $some_variable = new flygoal_Next_Round();
-		$res = $some_variable->upcoming_round_html($id);
+	    $varNext = new flygoal_Next_Round();
+		$resNext = $varNext->upcoming_round_html($id);
 
-		return $res;
+		return $resNext;
 	}
 	add_shortcode('nextRound', 'fgspnextRound');
 
@@ -251,10 +251,10 @@
 	    	$id = 122116;
 	    }
 
-	    $some_variable = new flygoal_Prev_Round();
-		$res = $some_variable->previous_round_html($id);
+	    $varPrev = new flygoal_Prev_Round();
+		$resPrev = $varPrev->previous_round_html($id);
 
-		return $res;
+		return $resPrev;
 	}
 	add_shortcode('prevRound', 'fgspprevRound');
 ?>
