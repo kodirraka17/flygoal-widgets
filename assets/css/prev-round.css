@@ -1,0 +1,346 @@
+.flygoalpr-embed-wrapper.fixtures {
+    width: 100% !important;
+    font-family: sans-serif !important;
+    background: #fff !important;
+    border: 1px solid #d4d9df !important;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .06) !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    font-size: 16px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures * {
+    line-height: normal !important;
+    font-family: inherit !important;
+    float: none !important;
+    box-sizing: border-box !important
+}
+
+.flygoalpr-embed-wrapper.fixtures a {
+    cursor: pointer !important;
+    text-decoration: none !important;
+    color: #2d5cc5 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list * a {
+    text-decoration: none !important;
+    box-shadow: none !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-date {
+    text-align: center !important;
+    background: #b2dd46 !important;
+    height: 32px !important;
+    border: 0 !important;
+    line-height: 32px !important;
+    color: #183053 !important;
+    padding: 0 15px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item {
+    display: flex !important;
+    height: 38px !important;
+    padding: 0 15px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border: 0 !important;
+    margin: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item .flygoalpr-fixture-item-status {
+    width: 10% !important;
+    flex-shrink: 0 !important;
+    background: #b2dd46 !important;
+    border-radius: 25px !important;
+    height: 28px !important;
+    text-align: center !important;
+    line-height: 28px !important;
+    font-weight: 500 !important;
+    margin: 0 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 50px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item .flygoalpr-fixture-item-team {
+    width: calc(40% - 15px) !important;
+    overflow: hidden !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item .flygoalpr-fixture-item-team.home {
+    text-align: right;
+    margin-left: auto
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item .flygoalpr-fixture-item-team.away {
+    margin-right: auto
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-next-round-list .flygoalpr-fixture-item .flygoalpr-fixture-item-team .flygoalpr-team-name {
+    display: inline-block !important;
+    overflow: hidden !important;
+    max-width: 99% !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list {
+    padding: 10px 0 !important;
+    margin: 0 !important;
+    display: block !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    border-bottom: 1px solid #eaeaea !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li:first-child {
+    padding: 0 10px 10px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li:last-child {
+    border-bottom: 0 !important;
+    padding: 10px 10px 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li .flygoalpr-fixture-info {
+    max-width: 75% !important;
+    overflow: hidden !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li .flygoalpr-fixture-info .flygoalpr-fixture-link,
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li .flygoalpr-fixture-info a {
+    display: block !important;
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+    text-decoration: none !important;
+    color: #2d5dc5 !important;
+    font-weight: 700 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li .flygoalpr-fixture-info .flygoalpr-fixture-meta {
+    font-size: 12px !important;
+    color: #47576e !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-fixture-list li .flygoalpr-fixture-result {
+    margin: 0 0 0 auto !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+    background: #eff5fb !important;
+    border-radius: .2rem !important;
+    height: 24px !important;
+    width: 34px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    padding: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header {
+    background: #2d2d2d !important;
+    position: relative !important;
+    border-radius: 10px 10px 0 0 !important;
+    box-shadow: 0 1px 4px 0 rgba(19, 40, 71, .07), inset 0 -1px 0 0 rgba(58, 94, 141, .16) !important;
+    height: 60px !important;
+    display: flex !important;
+    flex-wrap: no-wrap !important;
+    align-items: center !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-badge {
+    flex-shrink: 0 !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-right: 1px solid #e0e6ed !important;
+    margin-right: 15px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-badge img {
+    width: 40px !important;
+    display: block !important;
+    margin: auto !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title {
+    flex: 1 !important;
+    max-width: calc(70% - 60px) !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title,
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title * {
+    display: inline-block !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title .flygoalpr-country-flag {
+    display: inline !important;
+    width: 14px !important;
+    margin-right: 6px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title .flygoalpr-strong-title {
+    display: block !important;
+    width: 100% !important;
+    font-weight: 700 !important;
+    color: #b2dd46 !important;
+    margin-bottom: 5px !important;
+    text-decoration: none !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-header-title .flygoalpr-medium-title {
+    display: inline-block !important;
+    max-width: 100% !important;
+    color: #a7a7a7 !important;
+    font-size: 12px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-fixture-header {
+    margin: 0 15px 0 auto !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-header .flygoalpr-fixture-header a {
+    font-size: 14px !important;
+    color: #2d5dc5 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-body {
+    padding: 0 !important;
+    display: block !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-list-toggles {
+    display: flex !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #eaeaea !important;
+    position: sticky !important;
+    position: -webkit-sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    background: #fff !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-list-toggles .flygoalpr-list-toggle {
+    display: inline-block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    flex: 1 !important;
+    height: 34px !important;
+    line-height: 34px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    color: #2d5dc5 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-list-toggles .flygoalpr-list-toggle.active {
+    background: #ebeff5 !important;
+    color: #000 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 0 !important;
+    table-layout: fixed !important;
+    border: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table td,
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table th {
+    padding: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table thead {
+    border: 0 !important;
+    font-size: 11px !important;
+    color: #08366b !important;
+    font-weight: 700 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table thead th {
+    padding-bottom: 10px !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table thead th.rank {
+    padding: 0 10px 10px 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table td {
+    border: 0 !important;
+    font-size: 12px !important;
+    padding: 5px 0 !important;
+    vertical-align: middle !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table tbody,
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table tbody tr {
+    border: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-embed-table tbody tr:last-child {
+    border-bottom: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-row {
+    border-bottom: 1px solid #f0f0f0 !important;
+    vertical-align: baseline !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-item {
+    min-width: 20px !important;
+    text-align: left !important;
+    border: 0 !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-item.link {
+    color: #1565dc !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    max-width: 90% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-item.rank {
+    color: #497591 !important;
+    min-width: auto !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    padding: 0 10px 0 0 !important;
+    width: 5% !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-item.team {
+    font-size: 12px !important;
+    width: 50% !important
+}
+
+.flygoalpr-embed-wrapper.fixtures .flygoalpr-table-item.flygoalpr-align-center {
+    text-align: center !important
+}
