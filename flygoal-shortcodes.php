@@ -20,75 +20,79 @@
 			}
 		</style>
 
-		<h2>Shortcode Flygoal</h2>
+		<h2 style="padding-top: 5px;">Shortcode Flygoal</h2>
 		<hr><br>
 
-		<div class="form-group">
-			<div class="row">
-				<div class="col-lg-6">
-					<h4>Shortcode Standings</h4>
-				</div>
+		<div class="row">
+			<div class="col-4">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-6">
+							<h4>Standings</h4>
+						</div>
+					</div>
+					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="false" aria-invalid="false">
+						<?php wp_nonce_field('fgspregist_action', 'standings_nonce'); ?>
+					    <label for="League">Select League</label>
+					    <select name="league_standings" id="league_standings">
+					    	<option> -- Select League -- </option>
+					    	<option value='1639'> English Premier League </option>
+					    	<option value='188'> Bundesliga </option>
+					    	<option value='1134'> La Liga </option>
+					    	<option value='1112'> Ligue 1 </option>
+					    	<option value='1437'> Serie A </option>
+					    </select>
+					    <?php submit_button( __( 'Submit Standings' ), 'btn-primary', 'submitStandings' ); ?>
+					</form>
+			    </div>
 			</div>
-			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="false" aria-invalid="false">
-				<?php wp_nonce_field('fgspregist_action', 'standings_nonce'); ?>
-			    <label for="League">Select League</label>
-			    <select name="league_standings" id="league_standings">
-			    	<option> -- Select League -- </option>
-			    	<option value='1639'> English Premier League </option>
-			    	<option value='188'> Bundesliga </option>
-			    	<option value='1134'> La Liga </option>
-			    	<option value='1112'> Ligue 1 </option>
-			    	<option value='1437'> Serie A </option>
-			    </select>
-			    <?php submit_button( __( 'Submit Standings' ), 'btn-primary', 'submitStandings' ); ?>
-			</form>
-	    </div>
 
-	    <hr>
-
-	    <div class="form-group">
-			<div class="row">
-				<div class="col-lg-6">
-					<h4>Shortcode Previous Round</h4>
-				</div>
+			<div class="col-4">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-6">
+							<h4>Previous Round</h4>
+						</div>
+					</div>
+					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
+						<?php wp_nonce_field('fgspregist_action', 'prev_nonce'); ?>
+					    <label for="League">Select League</label>
+					    <select name="prev_round" id="prev_round">
+					    	<option> -- Select League -- </option>
+					    	<option value='1639'> English Premier League </option>
+					    	<option value='188'> Bundesliga </option>
+					    	<option value='1134'> La Liga </option>
+					    	<option value='1112'> Ligue 1 </option>
+					    	<option value='1437'> Serie A </option>
+					    </select>
+					    <?php submit_button( __( 'Submit Previous' ), 'btn-primary', 'submitPrev' ); ?>
+					</form>
+			    </div>
 			</div>
-			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
-				<?php wp_nonce_field('fgspregist_action', 'prev_nonce'); ?>
-			    <label for="League">Select League</label>
-			    <select name="prev_round" id="prev_round">
-			    	<option> -- Select League -- </option>
-			    	<option value='1639'> English Premier League </option>
-			    	<option value='188'> Bundesliga </option>
-			    	<option value='1134'> La Liga </option>
-			    	<option value='1112'> Ligue 1 </option>
-			    	<option value='1437'> Serie A </option>
-			    </select>
-			    <?php submit_button( __( 'Submit Previous' ), 'btn-primary', 'submitPrev' ); ?>
-			</form>
-	    </div>
 
-	    <hr>
-
-		<div class="form-group">
-			<div class="row">
-				<div class="col-lg-6">
-					<h4>Shortcode Next Round</h4>
-				</div>
+			<div class="col-4">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-lg-6">
+							<h4>Next Round</h4>
+						</div>
+					</div>
+					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
+						<?php wp_nonce_field('fgspregist_action', 'next_nonce'); ?>
+					    <label for="League">Select League</label>
+					    <select name="next_round" id="next_round">
+					    	<option> -- Select League -- </option>
+					    	<option value='1639'> English Premier League </option>
+					    	<option value='188'> Bundesliga </option>
+					    	<option value='1134'> La Liga </option>
+					    	<option value='1112'> Ligue 1 </option>
+					    	<option value='1437'> Serie A </option>
+					    </select>
+					    <?php submit_button( __( 'Submit Next' ), 'btn-primary', 'submitNext' ); ?>
+					</form>
+			    </div>
 			</div>
-			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
-				<?php wp_nonce_field('fgspregist_action', 'next_nonce'); ?>
-			    <label for="League">Select League</label>
-			    <select name="next_round" id="next_round">
-			    	<option> -- Select League -- </option>
-			    	<option value='1639'> English Premier League </option>
-			    	<option value='188'> Bundesliga </option>
-			    	<option value='1134'> La Liga </option>
-			    	<option value='1112'> Ligue 1 </option>
-			    	<option value='1437'> Serie A </option>
-			    </select>
-			    <?php submit_button( __( 'Submit Next' ), 'btn-primary', 'submitNext' ); ?>
-			</form>
-	    </div>
+		</div>
 	<?php }
 
 	function fgspregist_action() {
