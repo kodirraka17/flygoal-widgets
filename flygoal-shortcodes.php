@@ -99,6 +99,8 @@
 		    } else {
 		    	$league_standings = NULL;
 		    }
+		} else {
+			$league_standings = NULL;
 		}
 
 		if(wp_verify_nonce($_REQUEST['prev_nonce'], 'fgspregist_action')){
@@ -107,6 +109,8 @@
 		    } else {
 		    	$prev_round = NULL;
 		    }
+		} else {
+			$prev_round = NULL;
 		}
 
 		if(wp_verify_nonce($_REQUEST['next_nonce'], 'fgspregist_action')){
@@ -115,10 +119,12 @@
 		    } else {
 		    	$next_round = NULL;
 		    }
+		} else {
+			$next_round = NULL;
 		}
 
-	    fgspregist_validation( $league_standings, $prev_round, $next_round );
-	    fgspregist_form( $league_standings, $prev_round, $next_round );
+	    fgspregist_validation( esc_html( $league_standings ), esc_html( $prev_round ), esc_html( $next_round ) );
+	    fgspregist_form( esc_html( $league_standings ), esc_html( $prev_round ), esc_html( $next_round ) );
 	}
 
 	function fgspregist_validation( $league_standings, $prev_round, $next_round )  {
