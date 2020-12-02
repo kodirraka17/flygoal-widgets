@@ -1,4 +1,5 @@
 <?php
+	add_action('admin_menu', 'menu_flygoalshortcode');
 	function menu_flygoalshortcode(){
 	    add_menu_page(
 	    	'Shortcode FG',
@@ -172,8 +173,6 @@
 
 		echo $html;
 	}
-
-	    add_action('admin_menu', 'menu_flygoalshortcode');
 
 	function fgspstandingsLeague( $atts = [] ) {
 	    extract( shortcode_atts( array(
