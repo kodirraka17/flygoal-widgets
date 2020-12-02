@@ -33,7 +33,6 @@
 					</div>
 					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="false" aria-invalid="false">
 						<?php wp_nonce_field('fgspregist_action', 'standings_nonce'); ?>
-					    <label for="League">Select League</label>
 					    <select name="league_standings" id="league_standings">
 					    	<option> -- Select League -- </option>
 					    	<option value='1639'> English Premier League </option>
@@ -56,7 +55,6 @@
 					</div>
 					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
 						<?php wp_nonce_field('fgspregist_action', 'prev_nonce'); ?>
-					    <label for="League">Select League</label>
 					    <select name="prev_round" id="prev_round">
 					    	<option> -- Select League -- </option>
 					    	<option value='1639'> English Premier League </option>
@@ -79,7 +77,6 @@
 					</div>
 					<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
 						<?php wp_nonce_field('fgspregist_action', 'next_nonce'); ?>
-					    <label for="League">Select League</label>
 					    <select name="next_round" id="next_round">
 					    	<option> -- Select League -- </option>
 					    	<option value='1639'> English Premier League </option>
