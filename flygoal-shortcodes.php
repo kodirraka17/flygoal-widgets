@@ -1,5 +1,4 @@
 <?php
-	add_action('admin_menu', 'menu_flygoalshortcode');
 	function menu_flygoalshortcode(){
 	    add_menu_page(
 	    	'Shortcode FG',
@@ -30,6 +29,7 @@
 				</div>
 			</div>
 			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="false" aria-invalid="false">
+				<?php wp_nonce_field('fgspregist_action', 'standings_nonce'); ?>
 			    <label for="League">Select League</label>
 			    <select name="league_standings" id="league_standings">
 			    	<option> -- Select League -- </option>
@@ -38,7 +38,6 @@
 			    	<option value='1134'> La Liga </option>
 			    	<option value='1112'> Ligue 1 </option>
 			    	<option value='1437'> Serie A </option>
-			    	<option value='122116'> Liga 1 Indonesia </option>
 			    </select>
 			    <?php submit_button( __( 'Submit Standings' ), 'btn-primary', 'submitStandings' ); ?>
 			</form>
@@ -53,6 +52,7 @@
 				</div>
 			</div>
 			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
+				<?php wp_nonce_field('fgspregist_action', 'prev_nonce'); ?>
 			    <label for="League">Select League</label>
 			    <select name="prev_round" id="prev_round">
 			    	<option> -- Select League -- </option>
@@ -61,7 +61,6 @@
 			    	<option value='1134'> La Liga </option>
 			    	<option value='1112'> Ligue 1 </option>
 			    	<option value='1437'> Serie A </option>
-			    	<option value='122116'> Liga 1 Indonesia </option>
 			    </select>
 			    <?php submit_button( __( 'Submit Previous' ), 'btn-primary', 'submitPrev' ); ?>
 			</form>
@@ -76,6 +75,7 @@
 				</div>
 			</div>
 			<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" aria-required="true" aria-invalid="false">
+				<?php wp_nonce_field('fgspregist_action', 'next_nonce'); ?>
 			    <label for="League">Select League</label>
 			    <select name="next_round" id="next_round">
 			    	<option> -- Select League -- </option>
@@ -84,7 +84,6 @@
 			    	<option value='1134'> La Liga </option>
 			    	<option value='1112'> Ligue 1 </option>
 			    	<option value='1437'> Serie A </option>
-			    	<option value='122116'> Liga 1 Indonesia </option>
 			    </select>
 			    <?php submit_button( __( 'Submit Next' ), 'btn-primary', 'submitNext' ); ?>
 			</form>
@@ -92,23 +91,29 @@
 	<?php }
 
 	function fgspregist_action() {
-	    if (isset($_POST['submitStandings'])) {
-	    	$league_standings = sanitize_text_field($_POST['league_standings']);
-	    } else {
-	    	$league_standings = NULL;
-	    }
+		if(wp_verify_nonce($_REQUEST['standings_nonce'], 'fgspregist_action')){
+		    if (isset($_POST['submitStandings'])) {
+		    	$league_standings = sanitize_text_field($_POST['league_standings']);
+		    } else {
+		    	$league_standings = NULL;
+		    }
+		}
 
-	    if(isset($_POST['submitPrev'])) {
-	    	$prev_round = sanitize_text_field($_POST['prev_round']);
-	    } else {
-	    	$prev_round = NULL;
-	    }
+		if(wp_verify_nonce($_REQUEST['prev_nonce'], 'fgspregist_action')){
+		    if(isset($_POST['submitPrev'])) {
+		    	$prev_round = sanitize_text_field($_POST['prev_round']);
+		    } else {
+		    	$prev_round = NULL;
+		    }
+		}
 
-	    if(isset($_POST['submitNext'])) {
-	    	$next_round = sanitize_text_field($_POST['next_round']);
-	    } else {
-	    	$next_round = NULL;
-	    }
+		if(wp_verify_nonce($_REQUEST['next_nonce'], 'fgspregist_action')){
+		    if(isset($_POST['submitNext'])) {
+		    	$next_round = sanitize_text_field($_POST['next_round']);
+		    } else {
+		    	$next_round = NULL;
+		    }
+		}
 
 	    fgspregist_validation( $league_standings, $prev_round, $next_round );
 	    fgspregist_form( $league_standings, $prev_round, $next_round );
@@ -167,6 +172,8 @@
 
 		echo $html;
 	}
+
+	    add_action('admin_menu', 'menu_flygoalshortcode');
 
 	function fgspstandingsLeague( $atts = [] ) {
 	    extract( shortcode_atts( array(
