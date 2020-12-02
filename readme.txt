@@ -34,4 +34,4 @@ No, for the schedule will be update once a day. For the result will be update ev
 
 = 0.7 =
 * Sidebar Widget : Standing, Last Result, Next Match.
-* 5 Leagues (EPL, Serie A, La Liga, Liga 1, Bundes Liga.
+* 5 Leagues (EPL, Serie A, La Liga, Liga 1, Bundes Liga).
