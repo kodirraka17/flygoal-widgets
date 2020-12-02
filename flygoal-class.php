@@ -9,15 +9,15 @@
      */
     function __construct() {
       parent::__construct(
-        'flygoalsp_standings_widget', // Base ID
-        esc_html__( 'Flygoal : Standings League', 'flygoal_content' ), // Name
+        'fgstandings_widget', // Base ID
+        esc_html__( 'FG Standings League', 'flygoal_content' ), // Name
         array( 'description' => esc_html__( 'League Standing Table', 'flygoal_content' ), ) // Args
       );
     }
     
     public function standing_html($id = [], $links=0){
       if($id == 1639) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/main.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/standings.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
         $content = "<div id='flygoalsp-standings'></div>
         <script>
@@ -30,7 +30,7 @@
         </script>";
         return $content;
       } else if($id == 188) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/mainBundesliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/standingsBundesliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
         $contentBundesliga = "<div id='flygoalsp-standings-bundesliga'></div>
         <script>
@@ -43,7 +43,7 @@
         </script>";
         return $contentBundesliga;
       } else if($id == 1134) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/mainLaliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/standingsLaliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
         $contentLaliga = "<div id='flygoalsp-standings-laliga'></div>
         <script>
@@ -56,7 +56,7 @@
         </script>";
         return $contentLaliga;
       } else if ($id == 1112) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/mainLigue1.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/standingsLigue1.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
         $contentLigue1 = "<div id='flygoalsp-standings-ligue1'></div>
         <script>
@@ -69,9 +69,9 @@
         </script>";
         return $contentLigue1;
       } else if($id == 1437) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/mainSerieA.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/standingsSerieA.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $content = "<div id='flygoalsp-standings-seriea'></div>
+        $contentSerieA = "<div id='flygoalsp-standings-seriea'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
                 w['flygoalsp_StandingsEmbedSerieA']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
@@ -80,20 +80,7 @@
             }(window, document, 'script', 'mw', '{$url}'));
             mw('params', { leagueID: 1437, showLinks: false});
         </script>";
-        return $content;
-      } else if($id == 122116) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/mainIndo.js';
-        if($links == 1){$links = 'true';}else{$links = 'false';}
-        $content = "<div id='flygoalsp-standings-indo'></div>
-        <script>
-            (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_StandingsEmbedIndo']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-                js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-                js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-            }(window, document, 'script', 'mw', '{$url}'));
-            mw('params', { leagueID: 122116, showLinks: false});
-        </script>";
-        return $content;
+        return $contentSerieA;
       }
     }
 
@@ -132,7 +119,7 @@
       //   $options .= "<option value='{$l['id']}'>&nbsp;&nbsp;&nbsp;{$l['name']}</option>";
       // }
 
-      $options .= "<option> -- Select League -- </option><option value='1639'>&nbsp;&nbsp;&nbsp;English Premier League</option><option value='188'>&nbsp;&nbsp;&nbsp;Bundesliga</option><option value='1134'>&nbsp;&nbsp;&nbsp;La Liga</option><option value='1112'>&nbsp;&nbsp;&nbsp;Ligue 1</option><option value='1437'>&nbsp;&nbsp;&nbsp;Serie A</option>";
+      $options .= "<option> -- Select League -- </option><option value='1639'>&nbsp;&nbsp;&nbsp;English Premier League</option><option value='188'>&nbsp;&nbsp;&nbsp;Bundesliga</option><option value='1134'>&nbsp;&nbsp;&nbsp;La Liga</option><option value='1112'>&nbsp;&nbsp;&nbsp;Ligue 1</option><option value='1437'>&nbsp;&nbsp;&nbsp;Serie A</option><option value='122116'>&nbsp;&nbsp;&nbsp;Liga 1 Indonesia</option>";
 
       $last_edited = !empty($instance['last_edited']) ? $instance['last_edited'] : "update";
 
@@ -168,7 +155,7 @@
       // $league_name = html_entity_decode($league_name);
 
       ?>
-      <div class='flygoalsp_form_wrapper'>
+      <div class='fg_form_wrapper'>
         <p>
 
           <!-- Widget Title -->
@@ -226,8 +213,8 @@
      */
     function __construct() {
       parent::__construct(
-        'flygoalsp_upcoming_round_widget', // Base ID
-        esc_html__( 'Flygoal : Next Schedule', 'flygoal_content' ), // Name
+        'fgupcoming_round_widget', // Base ID
+        esc_html__( 'FG Next Schedule', 'flygoal_content' ), // Name
         array( 'description' => esc_html__( 'Upcoming Schedule Match', 'flygoal_content' ), ) // Args
       );
     }
@@ -235,12 +222,12 @@
     public function upcoming_round_html($id, $links=0){
       if($id == '1639') {
         $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRound.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/next-round.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $content = "<div id='flygoalsp-upcoming-round'></div>
+        $content = "<div id='flygoalnr-upcoming-round'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRound']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                w['flygoalnr_UpcomingRound']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
                 js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
             }(window, document, 'script', 'ur', '{$url}'));
@@ -249,12 +236,12 @@
         return $content;
       } else if($id == '1437') {
         $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRoundSerieA.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/next-roundSerieA.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentSerieA = "<div id='flygoalsp-upcoming-round-seriea'></div>
+        $contentSerieA = "<div id='flygoalnr-upcoming-round-seriea'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRoundSerieA']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                w['flygoalnr_UpcomingRoundSerieA']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
                 js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
             }(window, document, 'script', 'ur', '{$url}'));
@@ -263,12 +250,12 @@
         return $contentSerieA;
       } else if($id == '1134') {
         $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRoundLaliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/next-roundLaliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentLaliga = "<div id='flygoalsp-upcoming-round-laliga'></div>
+        $contentLaliga = "<div id='flygoalnr-upcoming-round-laliga'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRoundLaliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                w['flygoalnr_UpcomingRoundLaliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
                 js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
             }(window, document, 'script', 'ur', '{$url}'));
@@ -277,12 +264,12 @@
         return $contentLaliga;
       } else if($id == '188') {
         $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRoundBundesliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/next-roundBundesliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentBundesliga = "<div id='flygoalsp-upcoming-round-bundesliga'></div>
+        $contentBundesliga = "<div id='flygoalnr-upcoming-round-bundesliga'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRoundBundesliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                w['flygoalnr_UpcomingRoundBundesliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
                 js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
             }(window, document, 'script', 'ur', '{$url}'));
@@ -291,32 +278,18 @@
         return $contentBundesliga;
       } else if($id == '1112') {
         $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRoundLigue1.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/next-roundLigue1.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentLigue1 = "<div id='flygoalsp-upcoming-round-ligue1'></div>
+        $contentLigue1 = "<div id='flygoalnr-upcoming-round-ligue1'></div>
         <script>
             (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRoundLigue1']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                w['flygoalnr_UpcomingRoundLigue1']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
                 js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
                 js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
             }(window, document, 'script', 'ur', '{$url}'));
             ur('params', { leagueID: 1112, showLinks: {$links}, tz:'{$tz}'});
         </script>";
         return $contentLigue1;
-      } else if($id == '122116') {
-        $tz = get_option('timezone_string');
-        $url = plugin_dir_url( __FILE__ ).'assets/js/nextRoundIndo.js';
-        if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentIndo = "<div id='flygoalsp-upcoming-round-indo'></div>
-        <script>
-            (function (w,d,s,o,f,js,fjs) {
-                w['flygoalsp_UpcomingRoundIndo']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-                js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-                js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-            }(window, document, 'script', 'ur', '{$url}'));
-            ur('params', { leagueID: 1639, showLinks: {$links}, tz:'{$tz}'});
-        </script>";
-        return $contentIndo;
       }
     }
 
@@ -389,7 +362,7 @@
       // $league_name = html_entity_decode($league_name);
 
       ?>
-      <div class='flygoalsp_form_wrapper'>
+      <div class='fg_form_wrapper'>
         <p>
           <!-- Widget Title -->
           <label style="display:block;" for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'flygoal_content' ); ?></label> 
@@ -449,20 +422,20 @@
      */
     function __construct() {
       parent::__construct(
-        'flygoalsp_previous_round_widget', // Base ID
-        esc_html__( 'Flygoal : Last Result', 'flygoal_content' ), // Name
+        'fgprevious_round_widget', // Base ID
+        esc_html__( 'FG Last Result', 'flygoal_content' ), // Name
         array( 'description' => esc_html__( 'Latest Match Result', 'flygoal_content' ), ) // Args
       );
     }
     
     public function previous_round_html($id, $links=0){
       if($id == 1639) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRound.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/prev-round.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $content = "<div id='flygoalsp-previous-round'></div>
+        $content = "<div id='flygoalpr-previous-round'></div>
         <script>
           (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRound']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            w['flygoalpr_PreviousRound']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
           }(window, document, 'script', 'pr', '{$url}'));
@@ -470,12 +443,12 @@
         </script>";
         return $content;
       } else if($id == 188) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRoundBundesliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/prev-roundBundesliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentBundesliga = "<div id='flygoalsp-previous-round-bundesliga'></div>
+        $contentBundesliga = "<div id='flygoalpr-previous-round-bundesliga'></div>
         <script>
           (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRoundBundesliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            w['flygoalpr_PreviousRoundBundesliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
           }(window, document, 'script', 'pr', '{$url}'));
@@ -483,12 +456,12 @@
         </script>";
         return $contentBundesliga;
       } else if($id == 1112) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRoundLigue1.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/prev-roundLigue1.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentLigue1 = "<div id='flygoalsp-previous-round-ligue1'></div>
+        $contentLigue1 = "<div id='flygoalpr-previous-round-ligue1'></div>
         <script>
           (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRoundLigue1']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            w['flygoalpr_PreviousRoundLigue1']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
           }(window, document, 'script', 'pr', '{$url}'));
@@ -496,12 +469,12 @@
         </script>";
         return $contentLigue1;
       } else if($id == 1134) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRoundLaliga.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/prev-roundLaliga.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentLaliga = "<div id='flygoalsp-previous-round-laliga'></div>
+        $contentLaliga = "<div id='flygoalpr-previous-round-laliga'></div>
         <script>
           (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRoundLaliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            w['flygoalpr_PreviousRoundLaliga']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
           }(window, document, 'script', 'pr', '{$url}'));
@@ -509,31 +482,18 @@
         </script>";
         return $contentLaliga;
       } else if($id == 1437) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRoundSerieA.js';
+        $url = plugin_dir_url( __FILE__ ).'assets/js/prev-roundSerieA.js';
         if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentSerieA = "<div id='flygoalsp-previous-round-seriea'></div>
+        $contentSerieA = "<div id='flygoalpr-previous-round-seriea'></div>
         <script>
           (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRoundSerieA']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            w['flygoalpr_PreviousRoundSerieA']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
           }(window, document, 'script', 'pr', '{$url}'));
           pr('params', { leagueID: 1437, showLinks: {$links}});
         </script>";
         return $contentSerieA;
-      } else if($id == 122116) {
-        $url = plugin_dir_url( __FILE__ ).'assets/js/previousRoundIndo.js';
-        if($links == 1){$links = 'true';}else{$links = 'false';}
-        $contentIndo = "<div id='flygoalsp-previous-round-indo'></div>
-        <script>
-          (function (w,d,s,o,f,js,fjs) {
-            w['flygoalsp_PreviousRoundIndo']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-          }(window, document, 'script', 'pr', '{$url}'));
-          pr('params', { leagueID: 122116, showLinks: {$links}});
-        </script>";
-        return $contentIndo;
       }
     }
 
@@ -606,7 +566,7 @@
       // $league_name = html_entity_decode($league_name);
 
       ?>
-      <div class='flygoalsp_form_wrapper'>
+      <div class='fg_form_wrapper'>
       <p>
 
       <!-- Widget Title -->
@@ -671,17 +631,17 @@
      */
     function __construct() {
       parent::__construct(
-        'flygoalsp_next_fixture_widget', // Base ID
-        esc_html__( 'Flygoal : Team Next Fixtures', 'flygoal_content' ), // Name
+        'fgnext_fixture_widget', // Base ID
+        esc_html__( 'FG Team Next Fixtures', 'flygoal_content' ), // Name
         array( 'description' => esc_html__( 'Team Upcoming Match Schedules', 'flygoal_content' ), ) // Args
       );
     }
     
     public function next_fixture($id, $links){
       $tz = get_option('timezone_string');
-      $url = plugin_dir_url( __FILE__ ).'assets/js/next_fixture.js';
+      $url = plugin_dir_url( __FILE__ ).'assets/js/upcoming.js';
       if($links == 1){$links = 'true';}else{$links = 'false';}
-      $content = "<div id='flygoalsp-upcoming'></div> <script> (function (w,d,s,o,f,js,fjs) { w['flygoalsp_UpcomingEmbed']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'flygoalsp_Upcoming', '{$url}')); flygoalsp_Upcoming('params', { teamID: {$id}, showLinks: {$links}, tz:'{$tz}' }); </script>";
+      $content = "<div id='flygoalnf-upcoming'></div> <script> (function (w,d,s,o,f,js,fjs) { w['flygoalnf_UpcomingEmbed']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'fgUpcoming', '{$url}')); fgUpcoming('params', { teamID: {$id}, showLinks: {$links}, tz:'{$tz}' }); </script>";
       return $content;
     }
 
@@ -758,7 +718,7 @@
       // $league_name = str_replace("&nbsp;", "", $league_name);
       // $league_name = html_entity_decode($league_name);
     ?>
-      <div class='flygoalsp_form_wrapper'>
+      <div class='fg_form_wrapper'>
         <p>
           <!-- Widget Title -->
           <label style="display:block;" for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'flygoal_content' ); ?></label> 
@@ -767,7 +727,7 @@
         <!-- Widget League -->
         <p>
           <label style="display:block;" for="country">Find League ID</label> 
-          <select class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_league_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_league_id' ) ); ?>" data-uid='flygoalsp_next_fixture_league'>
+          <select class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_league_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_league_id' ) ); ?>" data-uid='fg_next_fixture_league'>
             <?php if(!empty ($instance['selected_league_id'])): ?>
               <!-- <option disabled>Selected</option> -->
               <option selected value="<?php echo $instance['selected_league_id']; ?>"><?php echo $league_name; ?></option>
@@ -778,7 +738,7 @@
         <!-- Widget Team -->
         <p>
           <label for="team">Find Team ID</label>
-          <select data-uid='flygoalsp_next_fixture_club' class="flygoalsp_next_fixture_club widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_club_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_club_id' ) ); ?>">
+          <select data-uid='fg_next_fixture_club' class="fg_next_fixture_club widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_club_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_club_id' ) ); ?>">
             <?php if(! empty ($instance['selected_club_id'])): ?>
               <option value="<?= $instance['selected_club_id'] ?>"><?= $instance['selected_club_id'] ?></option>
             <?php endif;?>
@@ -830,17 +790,17 @@
      */
     function __construct() {
       parent::__construct(
-        'flygoalsp_fixtures_widget', // Base ID
-        esc_html__( 'Flygoal : Fixtures / Results', 'flygoal_content' ), // Name
+        'fgfixtures_widget', // Base ID
+        esc_html__( 'FG Fixtures / Results', 'flygoal_content' ), // Name
         array( 'description' => esc_html__( 'Fixtures and Result by Team', 'flygoal_content' ), ) // Args
       );
     }
     
     public function club_fixtures($id, $links=1){
       $tz = get_option('timezone_string');
-      $url = plugin_dir_url( __FILE__ ).'assets/js/fixtures.min.js';
+      $url = plugin_dir_url( __FILE__ ).'assets/js/results.min.js';
       if($links == 1){$links = 'true';}else{$links = 'false';}
-      $content = "<div id='flygoalsp-fixtures'></div> <script> (function (w,d,s,o,f,js,fjs) { w['flygoalsp_FixturesEmbed']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'flygoalsp_Fixtures', '{$url}')); flygoalsp_Fixtures('params', { teamID: {$id}, showLinks:{$links}, tz:'{$tz}' }); </script>";
+      $content = "<div id='flygoalfx-fixtures'></div> <script> (function (w,d,s,o,f,js,fjs) { w['flygoalfx_FixturesEmbed']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'flygoalfx_Fixtures', '{$url}')); flygoalfx_Fixtures('params', { teamID: {$id}, showLinks:{$links}, tz:'{$tz}' }); </script>";
       return $content;
     }
 
@@ -918,7 +878,7 @@
       // $league_name = html_entity_decode($league_name);
 
       ?>
-      <div class='flygoalsp_form_wrapper'>
+      <div class='fg_form_wrapper'>
       <p>
 
       <!-- Widget Title -->
@@ -932,7 +892,7 @@
       <p>
 
       <label style="display:block;" for="country">Find League ID</label> 
-      <select class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_league_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_league_id' ) ); ?>" data-uid='flygoalsp_next_fixture_league'>
+      <select class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_league_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_league_id' ) ); ?>" data-uid='fg_next_fixture_league'>
       <?php if(! empty ($instance['selected_league_id'])): ?>
         <!-- <option disabled>Selected</option> -->
         <option selected value="<?php echo $instance['selected_league_id']; ?>"><?php echo $league_name; ?></option>
@@ -945,7 +905,7 @@
       <p>
       <label for="team">Find Team ID</label>
 
-      <select data-uid='flygoalsp_next_fixture_club' class="flygoalsp_next_fixture_club widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_club_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_club_id' ) ); ?>">
+      <select data-uid='fg_next_fixture_club' class="fg_next_fixture_club widefat" name="<?php echo esc_attr( $this->get_field_name( 'selected_club_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'selected_club_id' ) ); ?>">
       <?php if(! empty($instance['selected_club_id'])): ?>
         <option value="<?= $instance['selected_club_id'] ?>"><?= $instance['selected_club_id'] ?></option>
       <?php endif;?>
